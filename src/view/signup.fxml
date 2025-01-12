@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SignupController">
+   <children>
+      <Label layoutX="475.0" layoutY="23.0" text="Sign Up as a Donor" textAlignment="CENTER" textFill="#e10202">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="441.0" layoutY="129.0" prefHeight="17.0" prefWidth="73.0" text="Name " textFill="#06438d">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name" layoutX="517.0" layoutY="125.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your name" />
+      <Label layoutX="443.0" layoutY="168.0" prefHeight="17.0" prefWidth="73.0" text="Email " textFill="#06438d">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="440.0" layoutY="245.0" prefHeight="17.0" prefWidth="73.0" text="Phone " textFill="#06438d">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="443.0" layoutY="291.0" prefHeight="17.0" prefWidth="73.0" text="Area " textFill="#06438d">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="email" layoutX="517.0" layoutY="164.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your email" />
+      <TextField fx:id="phone" layoutX="517.0" layoutY="241.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your phone number" />
+      <ComboBox fx:id="area" layoutX="517.0" layoutY="287.0" prefHeight="25.0" prefWidth="244.0" promptText="Select your Area" />
+      <Label layoutX="439.0" layoutY="335.0" prefHeight="17.0" prefWidth="73.0" text="Thana  " textFill="#06438d">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="thana" layoutX="517.0" layoutY="331.0" prefHeight="25.0" prefWidth="244.0" promptText="Select your thana" />
+      <ComboBox fx:id="district" layoutX="517.0" layoutY="374.0" prefHeight="25.0" prefWidth="244.0" promptText="Select your District" />
+      <Label layoutX="442.0" layoutY="378.0" prefHeight="17.0" prefWidth="73.0" text="District" textFill="#06438d">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="438.0" layoutY="435.0" prefHeight="17.0" prefWidth="91.0" text="Available ?  " textAlignment="CENTER" textFill="#06438d">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="566.0" layoutY="476.0" mnemonicParsing="false" onAction="#register_press" style="-fx-background-color: #e10202;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="437.0" fitWidth="363.0" layoutX="32.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/signup.jpg" />
+         </image>
+      </ImageView>
+      <RadioButton layoutX="537.0" layoutY="435.0" mnemonicParsing="false" selected="true" text="Yes" textFill="#079009">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="available_radio" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="615.0" layoutY="435.0" mnemonicParsing="false" text="No" textFill="#8f2907" toggleGroup="$available_radio">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="440.0" layoutY="206.0" prefHeight="17.0" prefWidth="73.0" text="Password" textFill="#06438d">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="password" layoutX="517.0" layoutY="202.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your passwprd" />
+      <Label layoutX="490.0" layoutY="81.0" text="Already have an account ? ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="656.0" layoutY="79.0" text="Log in here" />
+   </children>
+</AnchorPane>
