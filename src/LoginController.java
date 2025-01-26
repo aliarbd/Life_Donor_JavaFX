@@ -47,19 +47,25 @@ public class LoginController implements Initializable {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, email);
             statement.setString(2, password);
-            
+
             ResultSet resultSet = statement.executeQuery();
-            
+
             if (resultSet.next()) {
                 // If a match is found, login successful
                 showAlert("Success", "Login successful!");
-                
-                // Redirect to the next screen (e.g., dashboard or main page)
-                Parent root = FXMLLoader.load(getClass().getResource("userProfile.fxml")); // Replace with your main page
+
+                // Pass the email to UserProfileController using static method
+                UserProfileController.setLoggedInUserEmail(email);
+
+                // Redirect to the User Profile page
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfile.fxml"));
+                Parent root = loader.load();
+
+                // Show the new scene
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
-                stage.setTitle("Dashboard");
+                stage.setTitle("User Profile");
                 stage.show();
             } else {
                 // If no match is found, show error

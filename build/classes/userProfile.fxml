@@ -7,13 +7,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfileController">
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfileController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="536.0" prefWidth="850.0">
+      <AnchorPane id="AnchorPane" layoutX="39.0" prefHeight="560.0" prefWidth="792.0">
          <children>
-            <Label layoutX="236.0" layoutY="21.0" text="Welcome to your Dashboard" textAlignment="CENTER" textFill="#e10202">
+            <Label layoutX="225.0" layoutY="4.0" text="Welcome to your Dashboard" textAlignment="CENTER" textFill="#e10202">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -83,11 +84,65 @@
                </font>
             </Label>
             <TextField fx:id="password_edit" layoutX="517.0" layoutY="202.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your passwprd" />
-            <Label layoutX="93.0" layoutY="90.0" text="Your Information" textAlignment="CENTER" textFill="#e10202">
+            <Label layoutX="94.0" layoutY="79.0" text="Your Information" textAlignment="CENTER" textFill="#026519">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
+            <Label layoutX="529.0" layoutY="79.0" text="Update Your Information" textAlignment="CENTER" textFill="#026519">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="1.0" layoutY="130.0" prefHeight="17.0" prefWidth="73.0" text="Name :" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="2.0" layoutY="169.0" prefHeight="17.0" prefWidth="73.0" text="Email :" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="3.0" layoutY="246.0" prefHeight="17.0" prefWidth="73.0" text="Phone :" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="2.0" layoutY="292.0" prefHeight="17.0" prefWidth="73.0" text="Area :" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutY="336.0" prefHeight="17.0" prefWidth="73.0" text="Thana : " textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutY="379.0" prefHeight="17.0" prefWidth="73.0" text="District :" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="3.0" layoutY="430.0" prefHeight="17.0" prefWidth="91.0" text="Available ?  " textAlignment="CENTER" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="3.0" layoutY="206.0" prefHeight="17.0" prefWidth="81.0" text="Password: " textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <VBox layoutX="366.0" layoutY="78.0" prefHeight="450.0" prefWidth="2.0" style="-fx-background-color: blue;" />
+            <Label fx:id="info_name" layoutX="84.0" layoutY="130.0" prefHeight="17.0" prefWidth="244.0" />
+            <Label fx:id="info_email" layoutX="84.0" layoutY="169.0" prefHeight="17.0" prefWidth="244.0" />
+            <Label fx:id="info_pass" layoutX="84.0" layoutY="206.0" prefHeight="17.0" prefWidth="244.0" />
+            <Label fx:id="info_phone" layoutX="84.0" layoutY="246.0" prefHeight="17.0" prefWidth="244.0" />
+            <Label fx:id="info_area" layoutX="94.0" layoutY="295.0" prefHeight="17.0" prefWidth="244.0" />
+            <Label fx:id="info_thana" layoutX="94.0" layoutY="336.0" prefHeight="17.0" prefWidth="244.0" />
+            <Label fx:id="info_district" layoutX="94.0" layoutY="379.0" prefHeight="17.0" prefWidth="244.0" />
+            <Label fx:id="info_available" layoutX="94.0" layoutY="430.0" prefHeight="17.0" prefWidth="244.0" />
          </children>
       </AnchorPane>
    </children>
