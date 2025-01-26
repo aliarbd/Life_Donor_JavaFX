@@ -1,11 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller=".UserProfileController">
-    
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfileController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="536.0" prefWidth="850.0">
+         <children>
+            <Label layoutX="236.0" layoutY="21.0" text="Welcome to your Dashboard" textAlignment="CENTER" textFill="#e10202">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="441.0" layoutY="129.0" prefHeight="17.0" prefWidth="73.0" text="Name " textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="name_edit" layoutX="517.0" layoutY="125.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your name" />
+            <Label layoutX="443.0" layoutY="168.0" prefHeight="17.0" prefWidth="73.0" text="Email " textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="440.0" layoutY="245.0" prefHeight="17.0" prefWidth="73.0" text="Phone " textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="443.0" layoutY="291.0" prefHeight="17.0" prefWidth="73.0" text="Area " textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="email_edit" layoutX="517.0" layoutY="164.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your email" />
+            <TextField fx:id="phone_edit" layoutX="517.0" layoutY="241.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your phone number" />
+            <ComboBox fx:id="area_edit" layoutX="517.0" layoutY="287.0" prefHeight="25.0" prefWidth="244.0" promptText="Select your Area" />
+            <Label layoutX="439.0" layoutY="335.0" prefHeight="17.0" prefWidth="73.0" text="Thana  " textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="thana_edit" layoutX="517.0" layoutY="331.0" prefHeight="25.0" prefWidth="244.0" promptText="Select your thana" />
+            <ComboBox fx:id="district_edit" layoutX="517.0" layoutY="374.0" prefHeight="25.0" prefWidth="244.0" promptText="Select your District" />
+            <Label layoutX="442.0" layoutY="378.0" prefHeight="17.0" prefWidth="73.0" text="District" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="438.0" layoutY="435.0" prefHeight="17.0" prefWidth="91.0" text="Available ?  " textAlignment="CENTER" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="566.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: #e10202;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+            <RadioButton layoutX="537.0" layoutY="435.0" mnemonicParsing="false" selected="true" text="Yes" textFill="#079009">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="available_radio" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="615.0" layoutY="435.0" mnemonicParsing="false" text="No" textFill="#8f2907" toggleGroup="$available_radio">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </RadioButton>
+            <Label layoutX="440.0" layoutY="206.0" prefHeight="17.0" prefWidth="73.0" text="Password" textFill="#06438d">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="password_edit" layoutX="517.0" layoutY="202.0" prefHeight="25.0" prefWidth="244.0" promptText="Enter your passwprd" />
+            <Label layoutX="93.0" layoutY="90.0" text="Your Information" textAlignment="CENTER" textFill="#e10202">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
