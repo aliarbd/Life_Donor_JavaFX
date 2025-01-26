@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="controller.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="800.0">
          <children>
@@ -31,14 +30,14 @@
                </font>
             </Label>
             <TextField fx:id="log_password" layoutX="185.0" layoutY="245.0" prefHeight="25.0" prefWidth="169.0" promptText="Enter your password" />
-            <Button layoutX="204.0" layoutY="295.0" mnemonicParsing="false" onAction="#register_press" style="-fx-background-color: #e10202;" text="Login" textFill="WHITE">
+            <Button layoutX="204.0" layoutY="295.0" mnemonicParsing="false" onAction="#login_press" style="-fx-background-color: #e10202;" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Button>
             <ImageView fitHeight="374.0" fitWidth="355.0" layoutX="410.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/login.png" />
+                  <Image url="@assets/login.png" />
                </image>
             </ImageView>
             <Label layoutX="108.0" layoutY="357.0" text="Haven't any account?">
@@ -46,7 +45,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="260.0" layoutY="356.0" text="Sign Up Here" />
+            <Hyperlink layoutX="260.0" layoutY="356.0" onAction="#signup_link_press" text="Sign Up Here" />
          </children>
       </AnchorPane>
    </children>

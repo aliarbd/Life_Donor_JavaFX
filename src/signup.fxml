@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SignupController">
+<AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignupController">
    <children>
       <Label layoutX="475.0" layoutY="23.0" text="Sign Up as a Donor" textAlignment="CENTER" textFill="#e10202">
          <font>
@@ -60,14 +60,14 @@
             <Font name="Arial Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="566.0" layoutY="476.0" mnemonicParsing="false" onAction="#register_press" style="-fx-background-color: #e10202;" text="Register" textFill="WHITE">
+      <Button layoutX="566.0" layoutY="476.0" mnemonicParsing="false" onAction="#signupButtonClicked" style="-fx-background-color: #e10202;" text="Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
       <ImageView fitHeight="437.0" fitWidth="363.0" layoutX="32.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/signup.jpg" />
+            <Image url="@assets/signup.jpg" />
          </image>
       </ImageView>
       <RadioButton layoutX="537.0" layoutY="435.0" mnemonicParsing="false" selected="true" text="Yes" textFill="#079009">
@@ -94,6 +94,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Hyperlink layoutX="656.0" layoutY="79.0" text="Log in here" />
+      <Hyperlink layoutX="656.0" layoutY="79.0" onAction="#login_link_clicked" text="Log in here" />
    </children>
 </AnchorPane>
