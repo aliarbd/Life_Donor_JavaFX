@@ -70,7 +70,7 @@
             <Image url="@assets/signup.jpg" />
          </image>
       </ImageView>
-      <RadioButton layoutX="537.0" layoutY="435.0" mnemonicParsing="false" selected="true" text="Yes" textFill="#079009">
+      <RadioButton fx:id="available_radio_yes" layoutX="537.0" layoutY="435.0" mnemonicParsing="false" onAction="#available_radio_reg" selected="true" text="Yes" textFill="#079009">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -78,7 +78,7 @@
             <ToggleGroup fx:id="available_radio" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="615.0" layoutY="435.0" mnemonicParsing="false" text="No" textFill="#8f2907" toggleGroup="$available_radio">
+      <RadioButton fx:id="available_radio_no" layoutX="615.0" layoutY="435.0" mnemonicParsing="false" text="No" textFill="#8f2907" toggleGroup="$available_radio">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

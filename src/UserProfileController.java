@@ -2,13 +2,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class UserProfileController implements Initializable {
 
@@ -40,8 +43,15 @@ public class UserProfileController implements Initializable {
     private Label info_thana;
     @FXML
     private Label info_district;
+    @FXML
+    private Label info_available;
+    @FXML
+    private RadioButton available_radio_yes_edit;
+    @FXML
+    private RadioButton available_radio_no_edit;
 
-    private static String loggedInUserEmail; // Static variable to store the logged-in email
+    private static String loggedInUserEmail;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,37 +62,37 @@ public class UserProfileController implements Initializable {
         }
     }
 
-    // Method to set the logged-in user's email (can be called from other controllers)
     public static void setLoggedInUserEmail(String email) {
         loggedInUserEmail = email;
     }
 
     private void populateUserData() {
-        // Database connection details
-        String dbUrl = "jdbc:mysql://localhost:3306/blood_db"; // Update with your database URL
-        String dbUser = "root"; // Update with your database username
-        String dbPassword = ""; // Update with your database password
+        String dbUrl = "jdbc:mysql://localhost:3306/blood_db";
+        String dbUser = "root";
+        String dbPassword = "";
 
-        // Query to fetch user data from the database
-        String query = "SELECT name, email, password, phone, area, thana, district FROM users WHERE email = ?";
+        district_edit.setItems(FXCollections.observableArrayList("District 1", "District 2", "District 3"));
+        area_edit.setItems(FXCollections.observableArrayList("Area 1", "Area 2", "Area 3"));
+        thana_edit.setItems(FXCollections.observableArrayList("Thana 1", "Thana 2", "Thana 3"));
+
+        String query = "SELECT name, email, password, phone, area, thana, district, availability FROM users WHERE email = ?";
 
         try (Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setString(1, loggedInUserEmail); // Use the logged-in email to query the database
+            stmt.setString(1, loggedInUserEmail);
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                // Populate fields with user data
                 info_name.setText(rs.getString("name"));
                 info_email.setText(rs.getString("email"));
-                info_pass.setText("********"); // Mask the password
+                info_pass.setText("********");
                 info_phone.setText(rs.getString("phone"));
                 info_area.setText(rs.getString("area"));
                 info_thana.setText(rs.getString("thana"));
                 info_district.setText(rs.getString("district"));
+                info_available.setText(rs.getBoolean("availability") ? "Yes" : "No");
 
-                // Optionally, set default values for editable fields
                 name_edit.setText(rs.getString("name"));
                 email_edit.setText(rs.getString("email"));
                 phone_edit.setText(rs.getString("phone"));
@@ -90,6 +100,11 @@ public class UserProfileController implements Initializable {
                 area_edit.getSelectionModel().select(rs.getString("area"));
                 thana_edit.getSelectionModel().select(rs.getString("thana"));
                 district_edit.getSelectionModel().select(rs.getString("district"));
+                if (rs.getBoolean("availability")) {
+                    available_radio_yes_edit.setSelected(true);
+                } else {
+                    available_radio_no_edit.setSelected(true);
+                }
             } else {
                 showAlert("Error", "No user data found for the given email.");
             }
@@ -97,6 +112,56 @@ public class UserProfileController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert("Error", "Failed to fetch user data: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    private void update_pressed() {
+        String updatedName = name_edit.getText();
+        String updatedEmail = email_edit.getText();
+        String updatedPhone = phone_edit.getText();
+        String updatedPassword = password_edit.getText();
+        String updatedArea = area_edit.getValue();
+        String updatedThana = thana_edit.getValue();
+        String updatedDistrict = district_edit.getValue();
+        boolean updatedAvailability = available_radio_yes_edit.isSelected();
+
+        if (updatedName.isEmpty() || updatedEmail.isEmpty() || updatedPhone.isEmpty() || updatedPassword.isEmpty()) {
+            showAlert("Error", "Please fill out all fields.");
+            return;
+        }
+
+        String dbUrl = "jdbc:mysql://localhost:3306/blood_db";
+        String dbUser = "root";
+        String dbPassword = "";
+
+        String updateQuery = "UPDATE users SET name = ?, email = ?, password = ?, phone = ?, area = ?, thana = ?, district = ?, availability = ? WHERE email = ?";
+
+        try (Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement stmt = conn.prepareStatement(updateQuery)) {
+
+            stmt.setString(1, updatedName);
+            stmt.setString(2, updatedEmail);
+            stmt.setString(3, updatedPassword);
+            stmt.setString(4, updatedPhone);
+            stmt.setString(5, updatedArea);
+            stmt.setString(6, updatedThana);
+            stmt.setString(7, updatedDistrict);
+            stmt.setBoolean(8, updatedAvailability);
+            stmt.setString(9, loggedInUserEmail);
+
+            int rowsUpdated = stmt.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                showAlert("Success", "User data updated successfully.");
+                populateUserData();
+            } else {
+                showAlert("Error", "Failed to update user data.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", "Database error: " + e.getMessage());
         }
     }
 

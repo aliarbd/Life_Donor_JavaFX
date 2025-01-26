@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 import javafx.collections.FXCollections;
+import javafx.scene.control.RadioButton;
 
 public class SignupController {
 
@@ -42,6 +43,10 @@ public class SignupController {
     private ComboBox<String> thana;
 
     private Connection connection;
+    @FXML
+    private RadioButton available_radio_no;
+    @FXML
+    private RadioButton available_radio_yes;
 
     // Initialize method to set up database connection and populate ComboBoxes
     public void initialize() {
@@ -60,50 +65,56 @@ public class SignupController {
         }
     }
 
-    // Method to handle signup form submission
-    @FXML
-    public void signupButtonClicked(ActionEvent event) {
-        try {
-            // Validate input fields
-            if (name.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty() || phone.getText().isEmpty()) {
-                showAlert("Validation Error", "All fields must be filled.");
-                return;
-            }
-
-            // Prepare SQL query to insert user data
-            String query = "INSERT INTO users (name, email, password, phone, district, area, thana) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, name.getText());
-            statement.setString(2, email.getText());
-            statement.setString(3, password.getText());
-            statement.setString(4, phone.getText());
-            statement.setString(5, district.getValue());
-            statement.setString(6, area.getValue());
-            statement.setString(7, thana.getValue());
-
-            // Execute the query
-            int rowsInserted = statement.executeUpdate();
-            if (rowsInserted > 0) {
-                showAlert("Success", "Signup successful! You can now log in.");
-                clearFields();
-                try {
-                                Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-                                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                                stage.setScene(new Scene(root));
-                                stage.setTitle("Login Screen");
-                                stage.show();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-            } else {
-                showAlert("Error", "Signup failed. Please try again.");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            showAlert("Error", "Could not save your information. Please try again.");
+// Method to handle signup form submission
+@FXML
+public void signupButtonClicked(ActionEvent event) {
+    try {
+        // Validate input fields
+        if (name.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty() || phone.getText().isEmpty()) {
+            showAlert("Validation Error", "All fields must be filled.");
+            return;
         }
+
+        // Determine availability (true for Yes, false for No)
+        boolean isAvailable = available_radio_yes.isSelected();
+
+        // Prepare SQL query to insert user data
+        String query = "INSERT INTO users (name, email, password, phone, district, area, thana, availability) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, name.getText());
+        statement.setString(2, email.getText());
+        statement.setString(3, password.getText());
+        statement.setString(4, phone.getText());
+        statement.setString(5, district.getValue());
+        statement.setString(6, area.getValue());
+        statement.setString(7, thana.getValue());
+        statement.setBoolean(8, isAvailable); // Store boolean value for availability
+
+        // Execute the query
+        int rowsInserted = statement.executeUpdate();
+        if (rowsInserted > 0) {
+            showAlert("Success", "Signup successful! You can now log in.");
+            clearFields();
+
+            // Redirect to login screen
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Login Screen");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            showAlert("Error", "Signup failed. Please try again.");
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        showAlert("Error", "Could not save your information. Please try again.");
     }
+}
 
     // Method to switch to login screen
     @FXML
@@ -137,5 +148,9 @@ public class SignupController {
         district.setValue(null);
         area.setValue(null);
         thana.setValue(null);
+    }
+
+    @FXML
+    private void available_radio_reg(ActionEvent event) {
     }
 }
