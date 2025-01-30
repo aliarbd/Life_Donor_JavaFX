@@ -11,41 +11,46 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="800.0">
+      <AnchorPane id="AnchorPane" prefHeight="409.0" prefWidth="800.0">
          <children>
-            <Label layoutX="118.0" layoutY="124.0" text="Login as a Donor" textAlignment="CENTER" textFill="#e10202">
+            <Label layoutX="118.0" layoutY="91.0" text="Login as a Donor" textAlignment="CENTER" textFill="#e10202">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="122.0" layoutY="210.0" prefHeight="17.0" prefWidth="73.0" text="Email" textFill="#06438d">
+            <Label layoutX="122.0" layoutY="176.0" prefHeight="17.0" prefWidth="73.0" text="Email" textFill="#06438d">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="log_email" layoutX="185.0" layoutY="206.0" prefHeight="25.0" prefWidth="169.0" promptText="Enter your email" />
-            <Label layoutX="94.0" layoutY="249.0" prefHeight="17.0" prefWidth="98.0" text="Password" textFill="#06438d">
+            <TextField fx:id="log_email" layoutX="185.0" layoutY="172.0" prefHeight="25.0" prefWidth="169.0" promptText="Enter your email" />
+            <Label layoutX="94.0" layoutY="215.0" prefHeight="17.0" prefWidth="98.0" text="Password" textFill="#06438d">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="log_password" layoutX="185.0" layoutY="245.0" prefHeight="25.0" prefWidth="169.0" promptText="Enter your password" />
-            <Button layoutX="204.0" layoutY="295.0" mnemonicParsing="false" onAction="#login_press" style="-fx-background-color: #e10202;" text="Login" textFill="WHITE">
+            <TextField fx:id="log_password" layoutX="185.0" layoutY="211.0" prefHeight="25.0" prefWidth="169.0" promptText="Enter your password" />
+            <Button layoutX="204.0" layoutY="261.0" mnemonicParsing="false" onAction="#login_press" style="-fx-background-color: #e10202;" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <ImageView fitHeight="374.0" fitWidth="355.0" layoutX="410.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="374.0" fitWidth="355.0" layoutX="410.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/login.png" />
                </image>
             </ImageView>
-            <Label layoutX="108.0" layoutY="357.0" text="Haven't any account?">
+            <Label layoutX="108.0" layoutY="323.0" text="Haven't any account?">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="260.0" layoutY="356.0" onAction="#signup_link_press" text="Sign Up Here" />
+            <Hyperlink layoutX="260.0" layoutY="322.0" onAction="#signup_link_press" text="Sign Up Here" />
+            <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#login_to_home" style="-fx-background-color: white;" text="🏠" textFill="#000000fa">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

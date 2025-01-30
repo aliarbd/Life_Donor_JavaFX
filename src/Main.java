@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("search.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Signup Screen"); // Optional: Set a window title

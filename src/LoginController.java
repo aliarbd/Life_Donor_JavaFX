@@ -56,6 +56,7 @@ public class LoginController implements Initializable {
 
                 // Pass the email to UserProfileController using static method
                 UserProfileController.setLoggedInUserEmail(email);
+                SearchController.setLoggedInUserEmail_(email);
 
                 // Redirect to the User Profile page
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfile.fxml"));
@@ -103,5 +104,19 @@ public class LoginController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void login_to_home(ActionEvent event) {
+        
+                try {
+            Parent root = FXMLLoader.load(getClass().getResource("search.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Home");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
