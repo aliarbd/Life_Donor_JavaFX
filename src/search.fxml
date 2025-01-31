@@ -63,12 +63,12 @@
       </Button>
       <TreeTableView fx:id="tableView" layoutX="402.0" layoutY="65.0" prefHeight="450.0" prefWidth="736.0">
         <columns>
-          <TreeTableColumn fx:id="table_name" prefWidth="148.0" text="Name" />
-          <TreeTableColumn fx:id="table_blood" prefWidth="103.0" text="Blood Group" />
-            <TreeTableColumn fx:id="table_phone" prefWidth="139.0" text="Phone" />
-            <TreeTableColumn fx:id="table_area" prefWidth="116.0" text="Area" />
-            <TreeTableColumn fx:id="table_thana" prefWidth="118.0" text="Thana" />
-            <TreeTableColumn fx:id="table_district" prefWidth="111.0" text="District" />
+          <TreeTableColumn fx:id="table_name" minWidth="30.0" prefWidth="148.0" text="Name" />
+          <TreeTableColumn fx:id="table_blood" minWidth="30.0" prefWidth="103.0" text="Blood Group" />
+            <TreeTableColumn fx:id="table_phone" minWidth="30.0" prefWidth="139.0" text="Phone" />
+            <TreeTableColumn fx:id="table_area" minWidth="30.0" prefWidth="116.0" text="Area" />
+            <TreeTableColumn fx:id="table_thana" minWidth="30.0" prefWidth="118.0" text="Thana" />
+            <TreeTableColumn fx:id="table_district" minWidth="30.0" prefWidth="111.0" text="District" />
         </columns>
       </TreeTableView>
       <Button layoutX="762.0" layoutY="15.0" mnemonicParsing="false" onAction="#home_to_profile" style="-fx-background-color: #2a9d8f;" text="Donor Dashboard" textFill="WHITE">

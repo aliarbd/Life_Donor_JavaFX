@@ -174,7 +174,7 @@
             </Label>
             <Label fx:id="info_blood" layoutX="84.0" layoutY="284.0" prefHeight="17.0" prefWidth="244.0" style="-fx-background-color: white;">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font size="14.0" />
                </font></Label>
          </children>
       </AnchorPane>
